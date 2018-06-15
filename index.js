@@ -21,7 +21,7 @@ const requestHandler = (request, response) => {
         bearer_token: bearer
     });
 
-    client.get("search/tweets.json", {q:request.query.query, result_type:"popular", lang:"en"}, function(error, tweets, twitter_response) {
+    client.get("search/tweets.json", {q:request.query.query, result_type:request.query.querytype, lang:request.query.language}, function(error, tweets, twitter_response) {
         if(error) {console.log(error); throw error};
         console.log(tweets); 
         //console.log(twitter_response);  // Raw response object.
@@ -34,7 +34,7 @@ const requestHandler = (request, response) => {
             tweetsHtml += "<p>" + element.text + "</p>";
         });
 
-        response.send('<html><head></head><body>' + tweetsHtml + '</body></html>')
+        response.send('<html><head></head><body><a href="index.html">...back</a><div>' + tweetsHtml + '</div></body></html>')
     });
 }
 

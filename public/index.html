@@ -2,7 +2,20 @@
     <head></head>
     <body>
         <form action="/twitter" method="GET">
+            <h1>Twitter API Querier</h1>
+            <label for="query">Search</label><br />
             <input type="text" id="query" name="query" />
+            <br /><br />
+            <label for="language">Language</label><br />
+            <input type="radio" name="language" id="language" value="en" checked /> en
+            <input type="radio" name="language" id="language" value="de" /> de
+            <br /><br />
+            <label for="querytype">Result Type</label><br />
+            <input type="radio" name="querytype" id="querytype" value="popular" checked /> Popular
+            <input type="radio" name="querytype" id="querytype" value="recent" /> Recent
+            <input type="radio" name="querytype" id="querytype" value="mixed" /> Mixed
+            <br />
+            <br />
             <input type="submit" />
         </form>
     </body>
